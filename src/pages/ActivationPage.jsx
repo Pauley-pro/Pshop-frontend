@@ -10,7 +10,7 @@ const ActivationPage = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    const sendRequest = async () => {
+    const sendRequest = async () => { 
       try {
         const response = await axios.post(`${server}/user/activation`, {
           activation_token,
