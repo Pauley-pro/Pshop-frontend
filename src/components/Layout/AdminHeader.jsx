@@ -17,7 +17,7 @@ const AdminHeader = () => {
             src="https://res.cloudinary.com/polad/image/upload/v1708701465/logo_r6zbad.png"
             // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
             alt=""
-            className="w-[150px] h-[50px]"
+            className="w-[150px] h-[50px] bg-black"
           />
         </Link>
       </div>
