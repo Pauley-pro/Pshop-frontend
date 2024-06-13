@@ -13,7 +13,8 @@ const DashboardHeader = () => {
       <div>
         <Link to="/dashboard">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src="https://res.cloudinary.com/polad/image/upload/v1708701465/logo_r6zbad.png"
+            // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
             alt=""
           />
         </Link>
