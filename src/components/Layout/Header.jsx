@@ -61,6 +61,7 @@ const Header = ({ activeHeading }) => {
                 src="https://res.cloudinary.com/polad/image/upload/v1708701465/logo_r6zbad.png"
                 // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
                 alt=""
+                className="w-[150px] h-[50px]"
               />
             </Link>
           </div>
@@ -109,9 +110,8 @@ const Header = ({ activeHeading }) => {
         </div>
       </div>
       <div
-        className={`${
-          active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
+        className={`${active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
+          } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -202,9 +202,8 @@ const Header = ({ activeHeading }) => {
 
       {/* mobile header */}
       <div
-        className={`${
-          active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        }
+        className={`${active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
+          }
       w-full h-[60px] bg-[#fff] z-50 top-0 left-0 shadow-sm 800px:hidden`}
       >
         <div className="w-full flex items-center justify-between">
@@ -218,9 +217,10 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+                src="https://res.cloudinary.com/polad/image/upload/v1708701465/logo_r6zbad.png"
+                // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
                 alt=""
-                className="mt-3 cursor-pointer"
+                className="mt-3 cursor-pointer w-[150px] h-[50px]"
               />
             </Link>
           </div>

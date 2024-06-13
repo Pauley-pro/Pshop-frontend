@@ -7,15 +7,17 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const AdminHeader = () => {
-    const {user} = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   return (
-         <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
+    <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
       <div>
         <Link to="/">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src="https://res.cloudinary.com/polad/image/upload/v1708701465/logo_r6zbad.png"
+            // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
             alt=""
+            className="w-[150px] h-[50px]"
           />
         </Link>
       </div>
@@ -52,11 +54,11 @@ const AdminHeader = () => {
               className="mx-5 cursor-pointer"
             />
           </Link>
-            <img
-              src={`${user?.avatar?.url}`}
-              alt=""
-              className="w-[50px] h-[50px] rounded-full object-cover"
-            />
+          <img
+            src={`${user?.avatar?.url}`}
+            alt=""
+            className="w-[50px] h-[50px] rounded-full object-cover"
+          />
         </div>
       </div>
     </div>
