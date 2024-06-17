@@ -17,6 +17,7 @@ const SellerActivationPage = () => {
           })
           .then((res) => {
             console.log(res);
+            navigate("/shop-login");
           })
           .catch((err) => {
             setError(true);
