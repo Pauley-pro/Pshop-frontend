@@ -263,12 +263,9 @@ const App = () => {
         <Route
           path="/admin/dashboard"
           element={
-            <AdminDashboardPage />
-            /*
             <ProtectedAdminRoute>
               <AdminDashboardPage />
             </ProtectedAdminRoute>
-            */
           }
         />
         <Route
