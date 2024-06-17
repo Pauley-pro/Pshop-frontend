@@ -18,7 +18,7 @@ const DashboardHero = () => {
   useEffect(() => {
      dispatch(getAllOrdersOfShop(seller._id));
      dispatch(getAllProductsShop(seller._id));
-  }, [dispatch]);
+  }, [dispatch, seller._id]);
 
   const availableBalance = seller?.availableBalance.toFixed(2);
 
@@ -31,7 +31,7 @@ const DashboardHero = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.row.status === "Delivered"
           ? "greenColor"
           : "redColor";
       },
@@ -73,16 +73,17 @@ const DashboardHero = () => {
     },
   ];
 
-  const row = [];
+  const rows = [];
 
   orders && orders.forEach((item) => {
-    row.push({
+    rows.push({
         id: item._id,
         itemsQty: item.cart.reduce((acc, item) => acc + item.qty, 0),
         total: "US$ " + item.totalPrice,
         status: item.status,
       });
   });
+
   return (
     <div className="w-full p-8">
       <h3 className="text-[22px] font-Poppins pb-2">Overview</h3>
@@ -145,7 +146,7 @@ const DashboardHero = () => {
       <h3 className="text-[22px] font-Poppins pb-2">Latest Orders</h3>
       <div className="w-full min-h-[45vh] bg-white rounded">
       <DataGrid
-        rows={row}
+        rows={rows}
         columns={columns}
         pageSize={10}
         disableSelectionOnClick
