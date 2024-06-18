@@ -54,16 +54,16 @@ const AdminDashboardMain = () => {
       type: "date",
       minWidth: 130,
       flex: 0.8,
-      valueGetter: (params) => new Date(params.row.createdAt),
+      valueGetter: (params) => params.row.createdAt ? new Date(params.row.createdAt) : null,
     },
   ];
 
   const rows = adminOrders?.map((item) => ({
-    id: item._id,
-    itemsQty: item.cart?.reduce((acc, item) => acc + item.qty, 0),
-    total: `${item.totalPrice} $`,
-    status: item.status,
-    createdAt: item.createdAt,
+    id: item?._id,
+    itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0) || 0,
+    total: item?.totalPrice ? `${item.totalPrice} $` : 'N/A',
+    status: item?.status || 'Unknown',
+    createdAt: item?.createdAt || 'N/A',
   })) || [];
 
   return (
