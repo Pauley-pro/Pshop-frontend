@@ -33,7 +33,7 @@ const AdminDashboardMain = () => {
       headerName: "Status",
       minWidth: 130,
       flex: 0.7,
-      renderCell: (params) => {
+      cellClassName: (params) => {
         return params.row.status === "Delivered" ? "greenColor" : "redColor";
       },
     },
