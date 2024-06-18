@@ -85,7 +85,7 @@ const ProductDetails = ({ data }) => {
       0
     );
 
-  const avg =  totalRatings / totalReviewsLength || 0;
+  const avg = totalRatings / totalReviewsLength || 0;
 
   const averageRating = avg.toFixed(2);
 
@@ -128,9 +128,8 @@ const ProductDetails = ({ data }) => {
                   {data &&
                     data.images.map((i, index) => (
                       <div
-                        className={`${
-                          select === 0 ? "border" : "null"
-                        } cursor-pointer`}
+                        className={`${select === 0 ? "border" : "null"
+                          } cursor-pointer`}
                       >
                         <img
                           src={`${i?.url}`}
@@ -141,9 +140,8 @@ const ProductDetails = ({ data }) => {
                       </div>
                     ))}
                   <div
-                    className={`${
-                      select === 1 ? "border" : "null"
-                    } cursor-pointer`}
+                    className={`${select === 1 ? "border" : "null"
+                      } cursor-pointer`}
                   ></div>
                 </div>
               </div>
@@ -310,31 +308,31 @@ const ProductDetailsInfo = ({
 
       {active === 2 ? (
         <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll">
-          {data &&
+          {data && data.reviews && data.reviews.length > 0 ? (
             data.reviews.map((item, index) => (
-              <div className="w-full flex my-2">
+              <div className="w-full flex my-2" key={index}>
                 <img
-                  src={`${item.user.avatar?.url}`}
-                  alt=""
+                  src={item.user.avatar?.url || '/default-avatar.png'} // Provide a default avatar in case url is missing
+                  alt="User Avatar"
                   className="w-[50px] h-[50px] rounded-full"
                 />
-                <div className="pl-2 ">
+                <div className="pl-2">
                   <div className="w-full flex items-center">
                     <h1 className="font-[500] mr-3">{item.user.name}</h1>
-                    <Ratings rating={data?.ratings} />
+                    <Ratings rating={item.rating} /> {/* Assuming item.rating is the review rating */}
                   </div>
                   <p>{item.comment}</p>
                 </div>
               </div>
-            ))}
-
-          <div className="w-full flex justify-center">
-            {data && data.reviews.length === 0 && (
+            ))
+          ) : (
+            <div className="w-full flex justify-center">
               <h5>No Reviews have for this product!</h5>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       ) : null}
+
 
       {active === 3 && (
         <div className="w-full block 800px:flex p-5">
