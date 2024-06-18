@@ -218,9 +218,7 @@ const AllOrders = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
+        return params.row.status === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -240,7 +238,7 @@ const AllOrders = () => {
     },
 
     {
-      field: " ",
+      field: "actions",
       flex: 1,
       minWidth: 150,
       headerName: "",
@@ -248,13 +246,11 @@ const AllOrders = () => {
       sortable: false,
       renderCell: (params) => {
         return (
-          <>
-            <Link to={`/user/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
-              </Button>
-            </Link>
-          </>
+          <Link to={`/user/order/${params.id}`}>
+            <Button>
+              <AiOutlineArrowRight size={20} />
+            </Button>
+          </Link>
         );
       },
     },
@@ -306,9 +302,7 @@ const AllRefundOrders = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
+        return params.row.status === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -328,7 +322,7 @@ const AllRefundOrders = () => {
     },
 
     {
-      field: " ",
+      field: "actions",
       flex: 1,
       minWidth: 150,
       headerName: "",
@@ -336,13 +330,11 @@ const AllRefundOrders = () => {
       sortable: false,
       renderCell: (params) => {
         return (
-          <>
-            <Link to={`/user/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
-              </Button>
-            </Link>
-          </>
+          <Link to={`/user/order/${params.id}`}>
+            <Button>
+              <AiOutlineArrowRight size={20} />
+            </Button>
+          </Link>
         );
       },
     },
@@ -391,9 +383,7 @@ const TrackOrder = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
+        return params.row.status === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -413,7 +403,7 @@ const TrackOrder = () => {
     },
 
     {
-      field: " ",
+      field: "actions",
       flex: 1,
       minWidth: 150,
       headerName: "",
@@ -421,13 +411,11 @@ const TrackOrder = () => {
       sortable: false,
       renderCell: (params) => {
         return (
-          <>
-            <Link to={`/user/track/order/${params.id}`}>
-              <Button>
-                <MdTrackChanges size={20} />
-              </Button>
-            </Link>
-          </>
+          <Link to={`/user/track/order/${params.id}`}>
+            <Button>
+              <MdTrackChanges size={20} />
+            </Button>
+          </Link>
         );
       },
     },
@@ -457,6 +445,7 @@ const TrackOrder = () => {
     </div>
   );
 };
+
 
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
