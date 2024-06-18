@@ -54,6 +54,7 @@ const AdminDashboardMain = () => {
       type: "date",
       minWidth: 130,
       flex: 0.8,
+      valueGetter: (params) => new Date(params.row.createdAt),
     },
   ];
 
@@ -62,7 +63,7 @@ const AdminDashboardMain = () => {
     itemsQty: item.cart?.reduce((acc, item) => acc + item.qty, 0),
     total: `${item.totalPrice} $`,
     status: item.status,
-    createdAt: item.createdAt.slice(0, 10),
+    createdAt: item.createdAt,
   })) || [];
 
   return (
